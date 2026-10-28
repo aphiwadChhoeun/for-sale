@@ -1,0 +1,614 @@
+/* ── House cards ─────────────────────────────────────────────────────── */
+
+.hcard {
+  position: relative;
+  flex: none;
+  width: clamp(84px, 8vw, 120px);
+  aspect-ratio: 0.665;
+  padding: 5px;
+  border-radius: 9px;
+  background: linear-gradient(170deg, #fffaf0 0%, #f4e8d3 55%, #eadcc2 100%);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.22s var(--ease-out),
+    box-shadow 0.22s var(--ease-out),
+    filter 0.22s var(--ease-out);
+}
+
+.hcard__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid rgba(23, 40, 32, 0.17);
+  background: var(--paper);
+}
+
+.hcard__art {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #cbb99a;
+  border-radius: 4px 4px 0 0;
+}
+
+.house-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hcard__sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    122deg,
+    rgba(255, 255, 255, 0.24) 0%,
+    rgba(255, 255, 255, 0.05) 28%,
+    transparent 46%,
+    rgba(23, 40, 32, 0.05) 100%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.hcard__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4px;
+  height: auto;
+  min-height: 25%;
+  padding: 2px 7px 4px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent 60%),
+    var(--paper);
+  border-top: 1px solid rgba(23, 40, 32, 0.12);
+}
+
+.hcard__label {
+  padding-bottom: 2px;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7c705d;
+  line-height: 1;
+}
+
+.hcard__value {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 36px);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  font-variant-numeric: lining-nums;
+}
+
+.hcard__corner {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background: rgba(251, 245, 231, 0.82);
+  color: rgba(23, 40, 32, 0.76);
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.hcard.is-selected {
+  box-shadow:
+    0 0 0 2px var(--gold-bright),
+    0 18px 40px -12px rgba(229, 176, 74, 0.45),
+    0 18px 36px -16px rgba(0, 0, 0, 0.7);
+}
+
+/* sizes */
+
+.hcard--xl {
+  width: clamp(142px, 15vw, 198px);
+  padding: 6px;
+  border-radius: 11px;
+}
+
+.hcard--xl .hcard__value {
+  font-size: clamp(34px, 4vw, 54px);
+}
+
+.hcard--lg {
+  width: clamp(112px, 11vw, 158px);
+}
+
+.hcard--lg .hcard__value {
+  font-size: clamp(28px, 3.2vw, 44px);
+}
+
+.hcard--sm {
+  width: clamp(72px, 6.8vw, 100px);
+  padding: 4px;
+  border-radius: 7px;
+}
+
+.hcard--sm .hcard__value {
+  font-size: clamp(18px, 2vw, 28px);
+}
+
+.hcard--sm .hcard__label {
+  font-size: 6px;
+}
+
+.hcard--sm .hcard__corner {
+  display: none;
+}
+
+.hcard--mini {
+  width: 34px;
+  padding: 2px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.6);
+}
+
+.hcard--mini .hcard__inner {
+  border-radius: 2px;
+}
+
+.hcard--mini .hcard__art {
+  border-radius: 2px 2px 0 0;
+}
+
+.hcard--mini .hcard__footer {
+  height: auto;
+  min-height: 30%;
+  padding: 0 3px 2px;
+}
+
+.hcard--mini .hcard__label,
+.hcard--mini .hcard__corner {
+  display: none;
+}
+
+.hcard--mini .hcard__value {
+  font-size: 12px;
+  line-height: 0.8;
+}
+
+/* ── Check cards ─────────────────────────────────────────────────────── */
+
+.ccard {
+  position: relative;
+  flex: none;
+  width: clamp(116px, 12.5vw, 180px);
+  aspect-ratio: 1.56;
+  padding: 3px;
+  border-radius: 6px;
+  color: #243a32;
+  background: linear-gradient(170deg, #fffaf0 0%, #f3ead5 60%, #e6d8bc 100%);
+  box-shadow:
+    0 16px 30px -14px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.22s var(--ease-out),
+    box-shadow 0.22s var(--ease-out),
+    filter 0.22s var(--ease-out);
+}
+
+.ccard__inner {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  padding: 7% 8%;
+  border-radius: 3px;
+  border: 1px solid rgba(36, 58, 50, 0.22);
+  background:
+    repeating-linear-gradient(0deg, rgba(36, 58, 50, 0.018) 0 1px, transparent 1px 3px),
+    linear-gradient(120deg, #fdf9ee 0%, #f7efdd 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.ccard__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background:
+    repeating-radial-gradient(
+      circle at 88% 42%,
+      transparent 0 4px,
+      rgba(36, 58, 50, 0.032) 4px 5px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 6px,
+      rgba(185, 130, 39, 0.035) 6px 7px
+    );
+}
+
+.ccard__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.ccard__bank {
+  font-family: var(--serif);
+  font-size: clamp(7.5px, 0.8vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.ccard__serial {
+  font-size: 5.5px;
+  letter-spacing: 0.08em;
+  color: rgba(36, 58, 50, 0.55);
+  white-space: nowrap;
+}
+
+.ccard__pay {
+  position: relative;
+  z-index: 1;
+  margin-top: 4%;
+  font-size: 5.5px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #7a6a4d;
+  white-space: nowrap;
+}
+
+.ccard__amount {
+  position: relative;
+  z-index: 1;
+  margin: auto 0;
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.8vw, 26px);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #1d3b30;
+  white-space: nowrap;
+}
+
+.ccard__amount--void {
+  font-family: var(--serif);
+  font-size: clamp(13px, 1.5vw, 21px);
+  letter-spacing: 0;
+  color: rgba(112, 83, 62, 0.7);
+  text-indent: 0;
+}
+
+.ccard__bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 3%;
+  border-top: 1px solid rgba(36, 58, 50, 0.17);
+}
+
+.ccard__memo {
+  font-size: 5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(36, 58, 50, 0.55);
+  white-space: nowrap;
+}
+
+.ccard__signature {
+  display: block;
+  width: 38%;
+  height: 11px;
+  color: rgba(36, 58, 50, 0.6);
+}
+
+.ccard__watermark {
+  position: absolute;
+  right: 5%;
+  top: 20%;
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 74px);
+  font-weight: 700;
+  letter-spacing: -0.09em;
+  color: rgba(36, 58, 50, 0.05);
+  transform: rotate(-10deg);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.ccard__seal {
+  position: absolute;
+  right: 10%;
+  bottom: 17%;
+  display: grid;
+  place-items: center;
+  width: 15%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(185, 130, 39, 0.55);
+  box-shadow: inset 0 0 0 2px rgba(185, 130, 39, 0.12);
+  color: rgba(185, 130, 39, 0.8);
+  font-size: clamp(5px, 0.6vw, 8px);
+  transform: rotate(-8deg);
+}
+
+.ccard__void-stamp {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  padding: 1% 4%;
+  border: 2px double rgba(184, 69, 56, 0.72);
+  border-radius: 2px;
+  color: rgba(184, 69, 56, 0.85);
+  font-family: var(--sans);
+  font-size: clamp(11px, 1.4vw, 19px);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  transform: translate(-50%, -50%) rotate(-16deg);
+  background: rgba(251, 245, 231, 0.3);
+}
+
+.ccard.is-void {
+  filter: saturate(0.3);
+}
+
+.ccard.is-void .ccard__inner {
+  background: linear-gradient(120deg, #f2eee2, #e9e3d4);
+}
+
+.ccard.is-highlight {
+  box-shadow:
+    0 0 0 1px rgba(229, 176, 74, 0.85),
+    0 16px 34px -12px rgba(229, 176, 74, 0.34),
+    0 16px 30px -14px rgba(0, 0, 0, 0.65);
+}
+
+.ccard--lg {
+  width: clamp(150px, 15vw, 212px);
+}
+
+.ccard--lg .ccard__amount {
+  font-size: clamp(21px, 2.2vw, 32px);
+}
+
+.ccard--sm {
+  width: clamp(90px, 9.6vw, 138px);
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.ccard--sm .ccard__amount {
+  font-size: clamp(13px, 1.45vw, 20px);
+}
+
+.ccard--sm .ccard__serial,
+.ccard--sm .ccard__seal {
+  display: none;
+}
+
+.ccard--mini {
+  width: 54px;
+  aspect-ratio: 1.6;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.ccard--mini .ccard__inner {
+  padding: 5px 6px;
+  border-radius: 2px;
+}
+
+.ccard--mini .ccard__serial,
+.ccard--mini .ccard__pay,
+.ccard--mini .ccard__bottom,
+.ccard--mini .ccard__seal,
+.ccard--mini .ccard__watermark {
+  display: none;
+}
+
+.ccard--mini .ccard__bank {
+  font-size: 5px;
+}
+
+.ccard--mini .ccard__amount {
+  font-size: 10px;
+  margin: auto 0;
+}
+
+.ccard--mini .ccard__amount--void {
+  font-size: 9px;
+}
+
+.ccard--mini .ccard__void-stamp {
+  font-size: 6px;
+  border-width: 1px;
+  letter-spacing: 0.1em;
+  text-indent: 0.1em;
+}
+
+/* ── Card backs ──────────────────────────────────────────────────────── */
+
+.card-back {
+  width: 44px;
+  aspect-ratio: 0.665;
+  padding: 2px;
+  border-radius: 4px;
+  background: linear-gradient(150deg, #1b5443 0%, #0c2c24 70%);
+  border: 1px solid rgba(229, 176, 74, 0.38);
+  box-shadow: 0 4px 12px -5px rgba(0, 0, 0, 0.7);
+}
+
+.card-back__frame {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  border: 1px solid rgba(229, 176, 74, 0.32);
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(229, 176, 74, 0.055) 0 1px,
+      transparent 1px 6px
+    ),
+    radial-gradient(circle at 50% 45%, rgba(229, 176, 74, 0.1), transparent 65%);
+}
+
+.card-back__mark {
+  width: 52%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 13%;
+  border-radius: 50%;
+  color: rgba(229, 176, 74, 0.8);
+  border: 1px solid rgba(229, 176, 74, 0.28);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.card-back--md {
+  width: 62px;
+}
+
+.card-back--mini {
+  width: 34px;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.card-back--mini .card-back__mark {
+  width: 58%;
+}
+
+/* ── Hand-specific card behaviour ────────────────────────────────────── */
+
+.hand .hcard--md {
+  width: clamp(76px, min(7.8vw, 11.6vh), 112px);
+}
+
+.hand .hcard__footer {
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.hand .hcard__label {
+  display: none;
+}
+
+.hand__card {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  background: transparent;
+  transform-origin: 50% 115%;
+  z-index: calc(var(--stack, 0) + 1);
+  transition: filter 0.2s var(--ease-out);
+}
+
+.hand__card + .hand__card {
+  margin-left: clamp(-32px, -2.1vw, -20px);
+}
+
+.hand__card:not(:disabled):hover .hcard {
+  transform: translateY(-9px);
+  box-shadow:
+    0 24px 44px -18px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(229, 176, 74, 0.2);
+}
+
+.hand__card:focus-visible {
+  outline: none;
+}
+
+.hand__card:focus-visible .hcard {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+
+.hand__card.is-selected {
+  z-index: 80;
+}
+
+.hand__card:disabled {
+  filter: saturate(0.7) brightness(0.72);
+}
+
+.hand__card.is-selected:disabled {
+  filter: none;
+}
+
+/* house row sizing */
+
+.house-row .hcard--md {
+  width: clamp(88px, min(9.2vw, 15vh), 140px);
+}
+
+.house-row .hcard--sm {
+  width: clamp(76px, min(7.8vw, 12.5vh), 114px);
+}
+
+.house-row.is-dense .hcard {
+  width: clamp(68px, min(7vw, 11.2vh), 102px);
+}
+
+.hand__pick-tag {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #241a0c;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px -3px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* check row sizing */
+
+.check-row .ccard {
+  width: clamp(120px, min(13.5vw, 20vh), 198px);
+}
+
+.check-row .ccard--sm {
+  width: clamp(100px, min(11vw, 17vh), 164px);
+}
+
+.check-row.is-dense .ccard {
+  width: clamp(88px, min(9.8vw, 15.4vh), 148px);
+}
+
+.check-row.is-dense .ccard__seal {
+  display: none;
+}
+
+/* ── Scene cards on the menu ─────────────────────────────────────────── */
+
+.scene-card .hcard,
+.scene-card .ccard {
+  width: 100%;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.45));
+}

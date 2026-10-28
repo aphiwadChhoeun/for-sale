@@ -1,0 +1,16 @@
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/fraunces/wght-italic.css';
+@import '@fontsource-variable/dm-sans';
+@import './styles/base.css';
+@import './styles/cards.css';
+@import './styles/menu.css';
+@import './styles/game.css';
+@import './styles/over.css';
+
+.app {
+  height: 100dvh;
+}
+
+.screen {
+  height: 100dvh;
+}
