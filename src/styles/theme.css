@@ -272,6 +272,10 @@ kbd {
   border-color: var(--line);
 }
 
+.hcard__art {
+  background: #f5f3ed;
+}
+
 .hcard__sheen {
   display: none;
 }
