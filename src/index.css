@@ -6,6 +6,7 @@
 @import './styles/menu.css';
 @import './styles/game.css';
 @import './styles/over.css';
+@import './styles/theme.css';
 
 .app {
   height: 100dvh;

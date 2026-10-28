@@ -1,0 +1,1374 @@
+/* ══════════════════════════════════════════════════════════════════════
+   Clean theme
+   A light, quiet, editorial re-skin. White surfaces, warm paper tones,
+   a single forest-green accent, and crisp sans-serif UI type.
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #faf9f6;
+  --surface-3: #f1f0eb;
+  --line: #e6e3dc;
+  --line-strong: #d6d2c8;
+
+  --ink: #1b211e;
+  --ink-2: #4f5752;
+  --ink-3: #7c847f;
+  --ink-4: #a6aca8;
+
+  --accent: #1d6b53;
+  --accent-strong: #15533f;
+  --accent-soft: #eef5f1;
+  --accent-line: #cfe1d8;
+
+  --danger: #b4553f;
+  --danger-soft: #faefeb;
+
+  --green-950: var(--bg);
+  --green-900: var(--surface);
+  --green-850: var(--surface-2);
+  --green-800: var(--surface-3);
+  --green-700: #e9e7e0;
+  --green-600: #ddd9cf;
+  --green-500: #cbc7bb;
+
+  --cream: var(--ink);
+  --cream-soft: var(--ink-2);
+  --cream-dim: rgba(27, 33, 30, 0.64);
+  --cream-faint: rgba(27, 33, 30, 0.42);
+  --paper: var(--surface);
+
+  --gold: var(--accent);
+  --gold-bright: #2e8a6c;
+  --gold-deep: var(--accent-strong);
+  --gold-soft: var(--accent-soft);
+
+  --terracotta: var(--danger);
+  --terracotta-soft: var(--danger-soft);
+  --sage: var(--accent);
+
+  --shadow-deep: 0 26px 60px -34px rgba(27, 33, 30, 0.24);
+  --shadow-card: 0 14px 32px -22px rgba(27, 33, 30, 0.22),
+    0 1px 3px rgba(27, 33, 30, 0.04);
+}
+
+/* ── Canvas ─────────────────────────────────────────────────────────── */
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(900px 620px at 82% -12%, rgba(29, 107, 83, 0.07), transparent 62%),
+    radial-gradient(720px 520px at 4% 108%, rgba(29, 107, 83, 0.045), transparent 60%),
+    var(--bg);
+}
+
+body::before {
+  display: none;
+}
+
+::selection {
+  background: rgba(29, 107, 83, 0.16);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(27, 33, 30, 0.16);
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 33, 30, 0.28);
+  background-clip: content-box;
+}
+
+/* ── Type ───────────────────────────────────────────────────────────── */
+
+.eyebrow {
+  color: var(--accent);
+  font-weight: 650;
+  letter-spacing: 0.18em;
+}
+
+.brand-lockup {
+  color: var(--accent);
+}
+
+.brand-lockup__sale {
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.brand-lockup__for {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.menu__title-sale,
+.menu__title-for,
+.confirm h2,
+.rules__header h2,
+.rules__section h3,
+.rules__winning h3,
+.over__title,
+.market-closed h2,
+.market__title h2,
+.turn-status__copy strong,
+.selling-prompt__copy strong,
+.reveal-prompt strong,
+.sold-panel__copy strong,
+.results-panel__head strong,
+.option-value,
+.gamebar__round,
+.seat__status--total,
+.auction-meter__cell > strong,
+.bid-console__amount-row strong,
+.sell-box__selected strong,
+.sell-box__locked strong,
+.dock__closed strong,
+.standing__total,
+.over__best strong {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.menu__title-sale {
+  font-weight: 650;
+  letter-spacing: -0.065em;
+  line-height: 0.82;
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.menu__title-for {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: clamp(6px, 0.62vw, 10px);
+}
+
+.gamebar__round {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.option-value {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.auction-meter__cell > strong,
+.bid-console__amount-row strong,
+.dock__closed strong,
+.standing__total,
+.sell-box__selected strong {
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Buttons & controls ─────────────────────────────────────────────── */
+
+.btn {
+  height: 44px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  box-shadow: none;
+}
+
+.btn--gold {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 18px -12px rgba(29, 107, 83, 0.8);
+  text-shadow: none;
+}
+
+.btn--gold:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  box-shadow: 0 10px 22px -12px rgba(29, 107, 83, 0.85);
+}
+
+.btn--ghost {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line-strong);
+}
+
+.btn--ghost:hover {
+  background: var(--surface-2);
+  border-color: var(--ink-4);
+  color: var(--ink);
+}
+
+.btn--pass {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: rgba(180, 85, 63, 0.22);
+  box-shadow: none;
+}
+
+.btn--pass:hover {
+  background: #f6e4dd;
+  border-color: rgba(180, 85, 63, 0.38);
+}
+
+.btn--start .btn__arrow {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.text-btn {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.text-btn:hover {
+  color: var(--accent-strong);
+  border-bottom-color: var(--accent-line);
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: var(--ink-2);
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+.icon-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+kbd {
+  border-color: var(--line);
+  background: var(--surface-2);
+  color: var(--ink-3);
+}
+
+/* ── Cards ──────────────────────────────────────────────────────────── */
+
+.hcard {
+  background: var(--surface);
+  box-shadow:
+    0 14px 34px -24px rgba(27, 33, 30, 0.28),
+    0 0 0 1px var(--line);
+}
+
+.hcard__inner {
+  border-color: var(--line);
+}
+
+.hcard__sheen {
+  display: none;
+}
+
+.hcard__footer {
+  background: var(--surface);
+  border-top-color: var(--line);
+}
+
+.hcard__label {
+  color: var(--ink-3);
+}
+
+.hcard__corner {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink-3);
+  box-shadow: 0 1px 2px rgba(27, 33, 30, 0.06);
+}
+
+.hcard.is-selected {
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 18px 38px -24px rgba(29, 107, 83, 0.5);
+}
+
+.ccard {
+  background: var(--surface);
+  box-shadow:
+    0 14px 30px -20px rgba(27, 33, 30, 0.25),
+    0 0 0 1px var(--line);
+}
+
+.ccard__inner {
+  border-color: var(--line);
+  background: #fffefb;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.ccard__inner::before {
+  display: none;
+}
+
+.ccard__seal {
+  border-color: var(--accent-line);
+  box-shadow: none;
+  color: var(--accent);
+}
+
+.ccard.is-highlight {
+  box-shadow:
+    0 0 0 2px var(--accent),
+    0 16px 34px -22px rgba(29, 107, 83, 0.42);
+}
+
+.card-back {
+  background: linear-gradient(155deg, #22785e 0%, #15533f 100%);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.hand__card:not(:disabled):hover .hcard {
+  box-shadow:
+    0 22px 44px -24px rgba(27, 33, 30, 0.32),
+    0 0 0 1px var(--accent-line);
+}
+
+.hand__card:focus-visible .hcard {
+  outline-color: var(--accent);
+}
+
+.hand__card:disabled {
+  filter: none;
+  opacity: 0.45;
+}
+
+.hand__card.is-selected:disabled {
+  opacity: 1;
+}
+
+.hand__pick-tag {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.scene-card .hcard,
+.scene-card .ccard {
+  filter: drop-shadow(0 26px 34px rgba(27, 33, 30, 0.16));
+}
+
+/* ── Menu ───────────────────────────────────────────────────────────── */
+
+.menu {
+  background:
+    radial-gradient(820px 560px at 76% 14%, rgba(29, 107, 83, 0.06), transparent 64%),
+    linear-gradient(180deg, #fbfaf7 0%, var(--bg) 58%, #f2f1ec 100%);
+}
+
+.menu::after,
+.menu__glow,
+.menu__rings {
+  display: none;
+}
+
+.menu__eyebrow {
+  color: var(--accent);
+}
+
+.menu__lede {
+  color: var(--ink-2);
+}
+
+.menu__panel {
+  border-radius: 20px;
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 28px 64px -40px rgba(27, 33, 30, 0.28),
+    0 1px 2px rgba(27, 33, 30, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.menu__panel::before {
+  display: none;
+}
+
+.option-label {
+  color: var(--ink-3);
+}
+
+.segmented {
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background: var(--surface-3);
+  border-color: transparent;
+}
+
+.segmented__btn {
+  border-radius: 7px;
+  color: var(--ink-2);
+  font-weight: 550;
+}
+
+.segmented__btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+}
+
+.segmented__btn.is-active {
+  color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(27, 33, 30, 0.1);
+  font-weight: 700;
+}
+
+.menu__hint {
+  color: var(--ink-3);
+}
+
+.menu__meta,
+.menu__record {
+  color: var(--ink-3);
+}
+
+.menu__record .icon {
+  color: var(--accent);
+}
+
+.menu__footer {
+  border-top-color: var(--line);
+  color: var(--ink-4);
+}
+
+.menu__footer-dot {
+  background: var(--accent-line);
+}
+
+/* Menu scene: strip the decorative layers, keep the card still-life. */
+
+.scene__sun,
+.scene__horizon,
+.scene__stamp,
+.scene__floor {
+  display: none;
+}
+
+.scene-card {
+  animation: none;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.scene__cash {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 16px 36px -24px rgba(27, 33, 30, 0.28);
+  transform: none;
+  animation: none;
+}
+
+.scene__badge {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 12px 26px -18px rgba(29, 107, 83, 0.7);
+  transform: none;
+}
+
+/* ── Game shell ─────────────────────────────────────────────────────── */
+
+.game {
+  background:
+    radial-gradient(900px 620px at 50% -18%, rgba(29, 107, 83, 0.07), transparent 62%),
+    linear-gradient(180deg, #fbfaf7 0%, var(--bg) 100%);
+}
+
+.gamebar__status-top .eyebrow {
+  color: var(--accent);
+}
+
+.round-dots__dot {
+  border-color: var(--line-strong);
+}
+
+.round-dots__dot.is-done {
+  background: var(--accent-line);
+}
+
+.round-dots__dot.is-current {
+  background: var(--accent);
+  box-shadow: none;
+}
+
+/* The table becomes a clean white sheet instead of green felt. */
+
+.table {
+  border-radius: 24px;
+  border-color: var(--line);
+  background: linear-gradient(180deg, #ffffff 0%, #fdfcf9 100%);
+  box-shadow:
+    0 30px 70px -46px rgba(27, 33, 30, 0.24),
+    0 1px 2px rgba(27, 33, 30, 0.03);
+}
+
+.table::before,
+.table::after,
+.table__pattern,
+.table__watermark,
+.table__corner {
+  display: none;
+}
+
+/* ── Rival seats ────────────────────────────────────────────────────── */
+
+.seat {
+  border-radius: 12px;
+  border-color: var(--line);
+  background: var(--surface-2);
+  box-shadow: none;
+}
+
+.seat::before {
+  display: none;
+}
+
+.seat.is-active {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 3px rgba(29, 107, 83, 0.05);
+}
+
+.seat.is-active::after {
+  background: var(--accent);
+}
+
+.seat.is-high {
+  border-color: var(--accent-line);
+}
+
+.seat__name {
+  color: var(--ink);
+}
+
+.seat__stats {
+  color: var(--ink-3);
+}
+
+.seat__cash {
+  color: var(--ink-4);
+}
+
+.seat__bid {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+.seat__bid--high {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+.seat__status {
+  color: var(--ink-4);
+}
+
+.seat__status--out {
+  border-color: rgba(180, 85, 63, 0.18);
+  color: var(--danger);
+}
+
+.seat__status--total {
+  color: var(--accent);
+}
+
+.seat__waiting,
+.seat__paid {
+  color: var(--ink-4);
+}
+
+.seat__active-dot {
+  background: var(--accent);
+  border-color: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  animation: none;
+}
+
+.seat__ready-dot {
+  border-color: var(--surface);
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.play-slot__ready {
+  background: var(--accent);
+  border-color: var(--surface);
+  color: #ffffff;
+}
+
+.play-slot__empty {
+  border-color: var(--line-strong);
+}
+
+.play-slot__empty span {
+  background: var(--ink-4);
+}
+
+.play-slot__check {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+/* ── Market headings & house row ────────────────────────────────────── */
+
+.market__title h2 {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.market__title h2 .market__sub {
+  color: var(--ink-3);
+}
+
+.market__legend {
+  color: var(--ink-3);
+}
+
+.legend-arrow,
+.top-check-label {
+  color: var(--accent);
+}
+
+.market__legend--checks > span:last-child {
+  color: var(--accent);
+}
+
+.house-row__tag--low {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: rgba(180, 85, 63, 0.18);
+}
+
+.house-row__tag--high {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+.house-row__sold {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.7);
+  text-shadow: none;
+  backdrop-filter: blur(1px);
+}
+
+.house-row__sold::before {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: none;
+}
+
+/* ── Auction meter ──────────────────────────────────────────────────── */
+
+.auction-meter {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.auction-meter__cell > span {
+  color: var(--ink-3);
+}
+
+.auction-meter__cell > strong {
+  color: var(--ink);
+}
+
+.auction-meter__cell--bid > strong {
+  color: var(--accent);
+}
+
+.auction-meter__cell--wallet > strong {
+  color: var(--ink);
+}
+
+.auction-meter__divider {
+  background: var(--line);
+}
+
+/* ── Ticker ─────────────────────────────────────────────────────────── */
+
+.ticker {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.ticker__icon {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.ticker--pass .ticker__icon {
+  color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.ticker--won .ticker__icon,
+.ticker--sold .ticker__icon {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.ticker__text strong {
+  color: var(--ink);
+}
+
+.ticker__text span {
+  color: var(--ink-3);
+}
+
+/* ── Bid console ────────────────────────────────────────────────────── */
+
+.bid-console {
+  border-radius: 16px;
+  border-color: var(--line);
+  background: var(--surface);
+  box-shadow: 0 20px 44px -34px rgba(27, 33, 30, 0.24);
+}
+
+.bid-console::before {
+  display: none;
+}
+
+.bid-console__amount-row strong {
+  color: var(--ink);
+}
+
+.step-btn {
+  border-color: var(--line);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+
+.step-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.quick-chip {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.quick-chip:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: #e3efe9;
+}
+
+.bid-slider__track {
+  background: var(--surface-3);
+}
+
+.bid-slider__fill {
+  background: var(--accent);
+  box-shadow: none;
+}
+
+.bid-slider input::-webkit-slider-thumb {
+  border-color: var(--surface);
+  background: var(--accent);
+  box-shadow: 0 1px 4px rgba(27, 33, 30, 0.2);
+}
+
+.bid-slider input::-moz-range-thumb {
+  border-color: var(--surface);
+  background: var(--accent);
+  box-shadow: 0 1px 4px rgba(27, 33, 30, 0.2);
+}
+
+.bid-slider__labels {
+  color: var(--ink-3);
+}
+
+.bid-console__hint {
+  color: var(--ink-4);
+}
+
+.bid-console__blocked-copy p {
+  color: var(--ink-2);
+}
+
+/* ── Turn / sold panels ─────────────────────────────────────────────── */
+
+.turn-status,
+.selling-prompt {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.turn-status::after {
+  display: none;
+}
+
+.turn-status__copy strong,
+.selling-prompt__copy strong {
+  color: var(--ink);
+}
+
+.turn-status__detail,
+.selling-prompt__detail {
+  color: var(--ink-3);
+}
+
+.turn-status__ring {
+  border-color: var(--accent-line);
+  animation: none;
+}
+
+.turn-status__lot {
+  border-color: var(--line);
+  color: var(--ink-3);
+}
+
+.sold-panel {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  box-shadow: none;
+}
+
+.sold-panel__stamp {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-shadow: none;
+}
+
+.sold-panel__copy strong {
+  color: var(--ink);
+}
+
+.sold-panel__copy > span:last-child {
+  color: var(--ink-2);
+}
+
+.sold-panel__progress {
+  background: var(--accent-line);
+}
+
+.sold-panel__progress span {
+  background: var(--accent);
+}
+
+/* ── Selling view ───────────────────────────────────────────────────── */
+
+.check-row__crown {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.check-row__claim {
+  border-color: var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  box-shadow: 0 6px 14px -10px rgba(27, 33, 30, 0.25);
+}
+
+.check-row__slot.is-claimed .ccard {
+  filter: saturate(0.9);
+}
+
+.readiness__item {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.readiness__item.is-ready {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.readiness__check {
+  border-color: var(--surface);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.readiness__name {
+  color: var(--ink-2);
+}
+
+.readiness__state {
+  color: var(--ink-4);
+}
+
+.readiness__item.is-ready .readiness__state {
+  color: var(--accent);
+}
+
+.reveal-prompt {
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+.reveal-prompt__shine {
+  display: none;
+}
+
+.reveal-prompt strong {
+  color: var(--ink);
+}
+
+.results-panel {
+  border-color: var(--line);
+  background: var(--surface);
+}
+
+.results-panel__head strong {
+  color: var(--ink);
+}
+
+.results-panel__sub {
+  color: var(--ink-3);
+}
+
+.btn.results-panel__next {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.btn.results-panel__next:hover {
+  background: var(--surface-2);
+}
+
+.result-chip {
+  border-color: var(--line);
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+
+.result-chip__rank {
+  background: var(--surface-3);
+  color: var(--ink-2);
+}
+
+.result-chip__house {
+  color: var(--ink);
+}
+
+.result-chip__check {
+  color: var(--accent);
+}
+
+.result-chip.is-top {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.result-chip.is-top .result-chip__rank {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.result-chip.is-you {
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+}
+
+.results-panel__timer {
+  background: var(--surface-3);
+}
+
+.results-panel__timer span {
+  background: var(--accent);
+}
+
+.market-closed {
+  color: var(--accent);
+}
+
+.market-closed h2 {
+  color: var(--ink);
+}
+
+.market-closed p {
+  color: var(--ink-3);
+}
+
+/* ── Human dock ─────────────────────────────────────────────────────── */
+
+.dock {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow:
+    0 20px 48px -38px rgba(27, 33, 30, 0.26),
+    0 1px 2px rgba(27, 33, 30, 0.03);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.dock::before {
+  display: none;
+}
+
+.dock__cash,
+.dock__checks {
+  color: var(--ink-2);
+}
+
+.dock__cash strong,
+.dock__checks strong {
+  color: var(--ink);
+}
+
+.dock__cash small,
+.dock__checks small {
+  color: var(--ink-4);
+}
+
+.dock__checks,
+.dock__checks strong {
+  color: var(--accent);
+}
+
+.dock__you-badge {
+  border-color: var(--surface);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.dock__tip {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.dock__tip p {
+  color: var(--ink-3);
+}
+
+.dock__tip-mark {
+  color: var(--accent);
+}
+
+.portfolio__count {
+  color: var(--ink-3);
+}
+
+.portfolio__cash {
+  color: var(--accent);
+}
+
+.portfolio__empty {
+  border-color: var(--line-strong);
+  color: var(--ink-3);
+}
+
+.portfolio__hint {
+  color: var(--ink-4);
+}
+
+.hand__count {
+  color: var(--ink-3);
+}
+
+.hand__locked {
+  color: var(--accent);
+}
+
+.sell-box {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.sell-box__selected span {
+  color: var(--ink-3);
+}
+
+.sell-box__selected strong {
+  color: var(--ink);
+}
+
+.sell-box__prompt {
+  color: var(--ink-3);
+}
+
+.sell-box__locked strong {
+  color: var(--ink);
+}
+
+.sell-box__locked span {
+  color: var(--ink-3);
+}
+
+.sell-box__lock-icon {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.dock__closed strong {
+  color: var(--ink);
+}
+
+.dock__closed span {
+  color: var(--ink-3);
+}
+
+/* ── Modal shell ────────────────────────────────────────────────────── */
+
+.modal__backdrop {
+  background: rgba(27, 33, 30, 0.24);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal__panel {
+  border-radius: 22px;
+  border-color: var(--line);
+  background: var(--surface);
+  box-shadow:
+    0 44px 110px -44px rgba(27, 33, 30, 0.38),
+    0 1px 2px rgba(27, 33, 30, 0.04);
+}
+
+.modal__panel::before {
+  display: none;
+}
+
+.modal__close {
+  background: var(--surface-2);
+}
+
+.confirm__mark {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  box-shadow: none;
+}
+
+.confirm h2 {
+  color: var(--ink);
+}
+
+.confirm p {
+  color: var(--ink-2);
+}
+
+/* ── Rules ──────────────────────────────────────────────────────────── */
+
+.rules__header p {
+  color: var(--ink-2);
+}
+
+.rules__setup-cell {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.rules__setup-cell strong {
+  color: var(--accent);
+}
+
+.rules__setup-cell > span:last-child {
+  color: var(--ink-3);
+}
+
+.rules__num {
+  color: var(--accent-line);
+}
+
+.rules__section p,
+.rules__section li {
+  color: var(--ink-2);
+}
+
+.rules__section li::marker {
+  color: var(--accent);
+}
+
+.rules__section li strong {
+  color: var(--ink);
+}
+
+.rules__winning {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.rules__winning p {
+  color: var(--ink-2);
+}
+
+.rules__winning-mark {
+  border-color: var(--accent-line);
+  color: var(--accent);
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.rules__tips {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.rules__tips-row p {
+  color: var(--ink-2);
+}
+
+.rules__footer {
+  border-top-color: var(--line);
+}
+
+.rules__footer > span {
+  color: var(--ink-4);
+}
+
+/* ── Game over ──────────────────────────────────────────────────────── */
+
+.over__scrim {
+  background: rgba(27, 33, 30, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.over__panel {
+  border-radius: 22px;
+  border-color: var(--line);
+  background: var(--surface);
+  box-shadow:
+    0 44px 110px -44px rgba(27, 33, 30, 0.4),
+    0 1px 2px rgba(27, 33, 30, 0.04);
+}
+
+.over__panel::before {
+  display: none;
+}
+
+.over__panel.is-victory {
+  box-shadow:
+    0 0 0 1px var(--accent-line),
+    0 44px 110px -44px rgba(27, 33, 30, 0.4);
+}
+
+.over__crest {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.over__eyebrow {
+  color: var(--accent);
+}
+
+.over__title {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+.over__lede {
+  color: var(--ink-2);
+}
+
+.over__standings {
+  border-color: var(--line);
+  background: var(--surface-2);
+}
+
+.over__standings-head {
+  border-bottom-color: var(--line);
+  color: var(--ink-3);
+}
+
+.standing {
+  border-bottom-color: var(--line);
+}
+
+.standing.is-winner {
+  background: var(--accent-soft);
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.standing.is-you {
+  background: #fbfcfb;
+}
+
+.standing.is-winner.is-you {
+  background: var(--accent-soft);
+}
+
+.standing__rank {
+  color: var(--accent);
+}
+
+.standing__name {
+  color: var(--ink);
+}
+
+.standing__name .icon {
+  color: var(--accent);
+}
+
+.standing__name em {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+.standing__checks,
+.standing__cash {
+  color: var(--ink-2);
+}
+
+.standing__checks small,
+.standing__cash small {
+  color: var(--ink-4);
+}
+
+.standing__total {
+  color: var(--ink);
+}
+
+.standing.is-winner .standing__total {
+  color: var(--accent);
+}
+
+.over__tiebreak {
+  color: var(--ink-3);
+}
+
+.over__footer {
+  border-top-color: var(--line);
+}
+
+.over__best strong {
+  color: var(--accent);
+}
+
+/* ── Responsive refinements ─────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+  .menu__title-sale {
+    letter-spacing: -0.07em;
+  }
+
+  .table {
+    border-radius: 18px;
+  }
+
+  .bid-console {
+    border-radius: 12px;
+  }
+
+  .dock {
+    border-radius: 14px;
+  }
+}

@@ -131,11 +131,11 @@ export function BillIcon({ className = '' }: { className?: string }) {
       height="22"
       aria-hidden="true"
     >
-      <rect x="1" y="5" width="28" height="16" rx="2.5" fill="#8FBF9A" stroke="#3E6B4E" strokeWidth="1" />
-      <rect x="4" y="2" width="28" height="16" rx="2.5" fill="#B8D9BE" stroke="#3E6B4E" strokeWidth="1" />
-      <circle cx="18" cy="10" r="4.2" fill="#3E6B4E" opacity="0.6" />
-      <path d="M8 10 H12 M24 10 H27" stroke="#3E6B4E" strokeWidth="1.2" strokeLinecap="round" />
-      <text x="18" y="12.2" textAnchor="middle" fontSize="4.5" fill="#F4EAD4" fontFamily="DM Sans, sans-serif" fontWeight="700">$</text>
+      <rect x="1" y="5" width="28" height="16" rx="2.5" fill="#b7d8c6" stroke="#1d6b53" strokeWidth="1" />
+      <rect x="4" y="2" width="28" height="16" rx="2.5" fill="#dcebe3" stroke="#1d6b53" strokeWidth="1" />
+      <circle cx="18" cy="10" r="4.2" fill="#1d6b53" opacity="0.6" />
+      <path d="M8 10 H12 M24 10 H27" stroke="#1d6b53" strokeWidth="1.2" strokeLinecap="round" />
+      <text x="18" y="12.2" textAnchor="middle" fontSize="4.5" fill="#ffffff" fontFamily="DM Sans, sans-serif" fontWeight="700">$</text>
     </svg>
   )
 }
