@@ -113,8 +113,6 @@ body::before {
   font-weight: 700;
 }
 
-.menu__title-sale,
-.menu__title-for,
 .confirm h2,
 .rules__header h2,
 .rules__section h3,
@@ -140,20 +138,6 @@ body::before {
   font-family: var(--sans);
   font-weight: 600;
   letter-spacing: -0.02em;
-}
-
-.menu__title-sale {
-  font-weight: 650;
-  letter-spacing: -0.065em;
-  line-height: 0.82;
-  color: var(--ink);
-  text-shadow: none;
-}
-
-.menu__title-for {
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: clamp(6px, 0.62vw, 10px);
 }
 
 .gamebar__round {
@@ -1360,10 +1344,6 @@ kbd {
 /* ── Responsive refinements ─────────────────────────────────────────── */
 
 @media (max-width: 700px) {
-  .menu__title-sale {
-    letter-spacing: -0.07em;
-  }
-
   .table {
     border-radius: 18px;
   }

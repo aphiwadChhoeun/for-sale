@@ -54,9 +54,24 @@ export function Menu({
             <span className="eyebrow__line" />
             A 15-minute auction classic
           </p>
-          <h1 className="menu__title">
-            <span className="menu__title-for">For</span>
-            <span className="menu__title-sale">Sale</span>
+          <h1 className="menu__sign">
+            <span className="sr-only">For Sale</span>
+            <span className="menu__sign-board" aria-hidden="true">
+              <span className="menu__sign-band">
+                <span>Auction House</span>
+                <span>Est. 1997</span>
+              </span>
+              <span className="menu__sign-body">
+                <span className="menu__sign-for">For</span>
+                <span className="menu__sign-sale">Sale</span>
+                <span className="menu__sign-rule" />
+                <span className="menu__sign-foot">By appointment only</span>
+              </span>
+              <span className="menu__sign-bolt menu__sign-bolt--left" />
+              <span className="menu__sign-bolt menu__sign-bolt--right" />
+            </span>
+            <span className="menu__sign-post" aria-hidden="true" />
+            <span className="menu__sign-ground" aria-hidden="true" />
           </h1>
           <p className="menu__lede">
             Buy the best houses when the market is quiet.

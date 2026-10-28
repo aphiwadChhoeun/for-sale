@@ -87,7 +87,7 @@
   position: relative;
   z-index: 3;
   flex: 1;
-  min-height: 0;
+  min-height: min-content;
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
@@ -114,44 +114,189 @@
   width: 34px;
 }
 
-.menu__title {
+/* The hero title as a physical "For Sale" yard sign. */
+
+.menu__sign {
+  position: relative;
+  display: block;
+  width: min(380px, 100%);
+  margin: clamp(12px, 1.8vh, 20px) 0 0;
+  padding-bottom: 40px;
+  user-select: none;
+  animation: signSet 0.7s var(--ease-out) both;
+}
+
+.menu__sign-board {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: -5px;
-  user-select: none;
+  border-radius: 5px;
+  background:
+    linear-gradient(158deg, #fffefb 0%, #fbf9f3 54%, #f2efe6 100%);
+  box-shadow:
+    0 0 0 1px rgba(27, 33, 30, 0.14),
+    0 2px 3px rgba(27, 33, 30, 0.1),
+    0 34px 48px -30px rgba(27, 33, 30, 0.52),
+    inset 0 1px 0 #ffffff;
+  transform: rotate(-1.4deg);
+  transform-origin: 50% 0%;
+  transition: transform 0.4s var(--ease-out);
+  container-type: inline-size;
 }
 
-.menu__title-for {
-  display: block;
-  margin-left: 10px;
-  margin-bottom: 4px;
-  font-family: var(--sans);
-  font-size: clamp(11px, 1.15vw, 15px);
-  font-weight: 750;
-  letter-spacing: clamp(7px, 0.75vw, 13px);
-  line-height: 1;
+.menu__sign-board::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(255, 255, 255, 0.7), transparent 58%),
+    linear-gradient(90deg, rgba(27, 33, 30, 0.045), transparent 12%, transparent 88%, rgba(27, 33, 30, 0.045));
+  opacity: 0.7;
+}
+
+.menu__sign:hover .menu__sign-board {
+  transform: rotate(-0.6deg) translateY(-2px);
+}
+
+.menu__sign-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 18px 7px;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(180deg, #267a5f 0%, #1a5d48 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 0 rgba(27, 33, 30, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
 }
 
-.menu__title-sale {
-  display: block;
-  font-family: var(--serif);
-  font-size: clamp(88px, 12.2vw, 174px);
-  font-weight: 500;
-  line-height: 0.78;
-  letter-spacing: -0.045em;
-  color: var(--cream);
-  text-shadow:
-    0 2px 0 rgba(27, 33, 30, 0.033),
-    0 30px 70px rgba(27, 33, 30, 0.06);
+.menu__sign-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 13px 18px 13px;
+  text-align: center;
+}
+
+.menu__sign-for {
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.35vw, 17px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.44em;
+  text-indent: 0.44em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.menu__sign-sale {
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-size: clamp(82px, 8.7vw, 104px);
+  font-weight: 800;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  text-indent: -0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
   font-optical-sizing: auto;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+@supports (font-size: 1cqw) {
+  .menu__sign-sale {
+    font-size: 30cqw;
+  }
+}
+
+.menu__sign-rule {
+  width: 58px;
+  height: 1px;
+  margin: 11px auto 9px;
+  background: linear-gradient(90deg, transparent, rgba(29, 107, 83, 0.55), transparent);
+}
+
+.menu__sign-foot {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.menu__sign-bolt {
+  position: absolute;
+  bottom: 9px;
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #ffffff 0%, #dedacf 34%, #a8a397 68%, #827d72 100%);
+  box-shadow:
+    0 1px 1px rgba(27, 33, 30, 0.35),
+    inset 0 -1px 1px rgba(27, 33, 30, 0.28);
+}
+
+.menu__sign-bolt--left {
+  left: calc(50% - 15px);
+}
+
+.menu__sign-bolt--right {
+  right: calc(50% - 15px);
+}
+
+.menu__sign-post {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  bottom: 8px;
+  z-index: 1;
+  width: 17px;
+  transform: translateX(-50%);
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, #9c7f59 0%, #d9c29a 30%, #c6aa80 58%, #8d7150 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(74, 56, 33, 0.3),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    0 18px 26px -16px rgba(27, 33, 30, 0.5);
+}
+
+.menu__sign-ground {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 0;
+  width: 150px;
+  height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(27, 33, 30, 0.2), transparent 68%);
+  filter: blur(3px);
+}
+
+@keyframes signSet {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-2.6deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
 }
 
 .menu__lede {
   max-width: 390px;
-  margin-top: clamp(18px, 2.6vh, 26px);
+  margin-top: clamp(14px, 2vh, 20px);
   font-size: clamp(14px, 1.3vw, 17px);
   line-height: 1.56;
   color: rgba(27, 33, 30, 0.66);
@@ -161,7 +306,7 @@
 .menu__panel {
   position: relative;
   width: min(438px, 100%);
-  margin-top: clamp(22px, 3.2vh, 34px);
+  margin-top: clamp(18px, 2.4vh, 26px);
   padding: 19px;
   border-radius: 18px;
   border: 1px solid rgba(29, 107, 83, 0.2);
@@ -528,10 +673,6 @@
     gap: 24px;
   }
 
-  .menu__title-sale {
-    font-size: clamp(82px, 12vw, 132px);
-  }
-
   .scene__cards {
     width: min(44vw, 430px);
     height: min(54vh, 480px);
@@ -556,8 +697,10 @@
     margin: 0 auto;
   }
 
-  .menu__title-sale {
-    font-size: clamp(84px, 17vw, 148px);
+  .menu__sign {
+    width: min(400px, 100%);
+    padding-bottom: 58px;
+    margin-top: 18px;
   }
 
   .menu__lede {
@@ -612,14 +755,45 @@
     letter-spacing: 0.2em;
   }
 
-  .menu__title-sale {
-    font-size: clamp(74px, 23vw, 108px);
+  .menu__sign {
+    padding-bottom: 46px;
+    margin-top: 15px;
   }
 
-  .menu__title-for {
-    font-size: 10px;
-    letter-spacing: 8px;
-    margin-left: 6px;
+  .menu__sign-band {
+    padding: 7px 13px 6px;
+    font-size: 7px;
+    letter-spacing: 0.18em;
+  }
+
+  .menu__sign-body {
+    padding: 12px 12px 12px;
+  }
+
+  .menu__sign-for {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+  }
+
+  .menu__sign-rule {
+    margin: 10px auto 8px;
+  }
+
+  .menu__sign-foot {
+    font-size: 7.5px;
+    letter-spacing: 0.2em;
+  }
+
+  .menu__sign-post {
+    width: 15px;
+    top: 56%;
+    bottom: 6px;
+  }
+
+  .menu__sign-ground {
+    width: 120px;
+    height: 15px;
   }
 
   .menu__lede {
@@ -672,8 +846,18 @@
     padding-top: 14px;
   }
 
-  .menu__title-sale {
-    font-size: clamp(78px, 10.5vw, 130px);
+  .menu__sign {
+    width: min(340px, 100%);
+    padding-bottom: 44px;
+    margin-top: 10px;
+  }
+
+  .menu__sign-body {
+    padding: 12px 16px 12px;
+  }
+
+  .menu__sign-rule {
+    margin: 10px auto 8px;
   }
 
   .menu__lede {
@@ -696,5 +880,18 @@
 
   .menu__footer {
     padding-top: 10px;
+  }
+}
+
+@media (min-width: 901px) and (min-height: 880px) {
+  .menu__sign {
+    width: min(420px, 100%);
+    padding-bottom: 56px;
+  }
+}
+
+@media (min-width: 1500px) and (min-height: 950px) {
+  .menu__sign {
+    width: min(480px, 100%);
   }
 }
