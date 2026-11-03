@@ -5,6 +5,12 @@ React, TypeScript, Vite and Framer Motion.
 
 Buy the best houses when the market is quiet, then flip them for a fortune.
 
+## Screenshots
+
+| Table setup | Buying phase | Selling phase |
+| --- | --- | --- |
+| ![Menu](docs/screenshots/menu.jpg) | ![Auction](docs/screenshots/auction.jpg) | ![Selling](docs/screenshots/selling.jpg) |
+
 ## Run it
 
 ```bash
