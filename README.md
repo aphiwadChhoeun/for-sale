@@ -21,11 +21,14 @@ npm run dev
 Open the URL Vite prints (normally `http://localhost:5173`).
 
 ```bash
-npm run build    # type-check + production bundle
+npm run build    # type-check + production bundle (including the service worker)
 npm run preview  # serve the production build
 npm run test     # engine / AI simulation tests
 npm run lint
 ```
+
+The service worker is only registered in production builds, so use
+`npm run build && npm run preview` to test installability and offline play.
 
 ## Features
 
@@ -42,6 +45,8 @@ npm run lint
   reduced-motion support, and high-contrast primary information.
 - **Local record**: settings, sound preference and win/loss tally persist in
   `localStorage`.
+- **Installable PWA**: add it to your home screen or desktop and play the full
+  game offline. Every script, style, font and icon is precached on first visit.
 - **AI with teeth**: auction bids use risk-adjusted upgrade valuations; the
   sell-off uses Monte Carlo sampling over unseen hands.
 
@@ -89,6 +94,8 @@ src/
     engine.test.ts  full-game invariant simulations for 3–6 players
   components/       cards, seats, auction/selling views, menu, modals
   styles/           base, cards, menu, game, overlays
+public/
+  icons/            installable PWA icons (any + maskable)
 ```
 
 The deck and check values are created from the official distribution; the
